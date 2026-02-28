@@ -18,7 +18,14 @@ class HomeScreenView extends GetView<HomescreenController> {
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
-        children: [Center(child: Text("Hello, Welcome to Home Screen"))],
+        children: [
+          Center(
+            child: Text(
+              "Hello, Welcome to Home Screen",
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+            ),
+          ),
+        ],
       ),
     );
   }
