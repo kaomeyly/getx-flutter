@@ -7,6 +7,8 @@ class HomeScreenView extends GetView<HomescreenController> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      body: Column(children: [Text("Hello, Welcome to Home Screen")]),
+    );
   }
 }
