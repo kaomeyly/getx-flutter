@@ -54,7 +54,7 @@ class LoginScreenView extends GetView<LoginScreenViewController> {
 
             Text(
               "Help beginners to learn Flutter framework with GetX state management",
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.normal),
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.normal,color: Colors.grey),
             ),
             SizedBox(height: 60),
             CustomTxtfield(hintText: "Email"),
