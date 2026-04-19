@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:get/state_manager.dart';
-import 'package:getx_project/screens/home_screen/homescreen_controller.dart';
+import 'package:get/get.dart';
+
+import 'homescreen_controller.dart';
 
 class HomeScreenView extends GetView<HomescreenController> {
   const HomeScreenView({super.key});
@@ -8,7 +9,17 @@ class HomeScreenView extends GetView<HomescreenController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(children: [Text("Hello, Welcome to Home Screen")]),
+      appBar: AppBar(
+        title: Text("Home Screen"),
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back),
+          onPressed: () => Get.back(),
+        ),
+      ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [Center(child: Text("Hello, Welcome to Home Screen"))],
+      ),
     );
   }
 }

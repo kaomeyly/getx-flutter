@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:getx_project/screens/home_screen/home_screen_view.dart';
 import 'package:getx_project/widgets/textfield/custom_txtfield.dart';
 
 part 'login_screen_binding.dart';
@@ -18,9 +19,15 @@ class LoginScreenView extends GetView<LoginScreenViewController> {
             Container(
               width: 50,
               height: 50,
+
               decoration: BoxDecoration(
                 color: Colors.grey,
                 borderRadius: BorderRadius.circular(30),
+                image: DecorationImage(
+                  image: NetworkImage(
+                    "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTLXuM2b4djVbMt63hftHrWFFMeQmccyytKlQ&s",
+                  ),
+                ),
               ),
             ),
             SizedBox(width: 10),
@@ -49,23 +56,16 @@ class LoginScreenView extends GetView<LoginScreenViewController> {
             SizedBox(height: 30),
             Text(
               "SING IN OR CREATE \nAN ACCOUNT",
-              style: TextStyle(
-                fontSize: 27,
-                fontWeight: FontWeight.normal,
-                color: Colors.grey,
-              ),
+              style: TextStyle(fontSize: 27, fontWeight: FontWeight.bold),
             ),
 
             Text(
               "Help beginners to learn Flutter framework with GetX state management package.",
-              style: TextStyle(
-                fontSize: 20,
-                fontWeight: FontWeight.normal,
-                color: Colors.grey,
-              ),
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w300),
             ),
             SizedBox(height: 60),
             CustomTxtfield(hintText: "Email"),
+            SizedBox(height: 20),
             Obx(
               () => CustomTxtfield(
                 hintText: "Password",
@@ -82,6 +82,79 @@ class LoginScreenView extends GetView<LoginScreenViewController> {
                   ),
                 ),
               ),
+            ),
+            SizedBox(height: 20),
+            Obx(
+              () => Row(
+                children: [
+                  Checkbox(
+                    activeColor: const Color.fromARGB(255, 26, 83, 28),
+                    value: controller.rememberMe.value,
+                    onChanged: (value) => controller.toggleRememberMe(),
+                  ),
+                  Text(
+                    "Remember Me",
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  ),
+                  Spacer(),
+                  Text(
+                    "Forget Password?",
+                    style: TextStyle(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      decoration: TextDecoration.underline,
+                      decorationColor: Colors.red,
+                      decorationStyle: TextDecorationStyle.solid,
+                      decorationThickness: 2,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            SizedBox(height: 20),
+            Row(
+              children: [
+                Expanded(
+                  flex: 2,
+                  child: SizedBox(
+                    height: 55,
+                    child: OutlinedButton(
+                      style: OutlinedButton.styleFrom(
+                        backgroundColor: const Color.fromARGB(255, 26, 77, 28),
+                        foregroundColor: Colors.white,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                        side: BorderSide(width: 2, color: Colors.brown),
+                        shadowColor: Colors.brown,
+                        elevation: 5,
+                      ),
+                      onPressed: () {
+                        Get.to(() => HomeScreenView());
+                        
+                      },
+                      child: Text("Continue", style: TextStyle(fontSize: 16)),
+                    ),
+                  ),
+                ),
+                SizedBox(width: 8),
+                Expanded(
+                  flex: 1,
+                  child: SizedBox(
+                    height: 55,
+                    child: OutlinedButton(
+                      style: OutlinedButton.styleFrom(
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                        side: BorderSide(width: 2, color: Colors.brown),
+                      ),
+                      onPressed: () {},
+                      child: Text("As Guest", style: TextStyle(fontSize: 16)),
+                    ),
+                  ),
+                ),
+              ],
             ),
           ],
         ),
@@ -110,8 +183,4 @@ class LoginScreenView extends GetView<LoginScreenViewController> {
       ],
     );
   }
-
-  // Widget _buildbtn(){
-
-  // }
 }

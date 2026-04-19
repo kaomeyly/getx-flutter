@@ -17,7 +17,21 @@ class CustomTxtfield extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       obscureText: isPass && isHide,
-      decoration: InputDecoration(hintText: hintText, suffixIcon: suffixIcons),
+      decoration: InputDecoration(
+        hintText: hintText,
+        suffixIcon: suffixIcons,
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(15),
+          borderSide: BorderSide(
+            width: 2,
+            color: const Color.fromARGB(255, 26, 77, 28),
+          ),
+        ),
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(15),
+          borderSide: BorderSide(width: 2, color: Colors.brown),
+        ),
+      ),
     );
   }
 }
