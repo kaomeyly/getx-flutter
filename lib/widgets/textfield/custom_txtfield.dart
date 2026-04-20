@@ -5,9 +5,11 @@ class CustomTxtfield extends StatelessWidget {
   final Widget? suffixIcons;
   final bool isPass;
   final bool isHide;
+  final TextEditingController? txtController;
   const CustomTxtfield({
     super.key,
     required this.hintText,
+    required this.txtController,
     this.suffixIcons,
     this.isPass = false,
     this.isHide = true,
@@ -16,6 +18,7 @@ class CustomTxtfield extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: txtController,
       obscureText: isPass && isHide,
       decoration: InputDecoration(
         hintText: hintText,

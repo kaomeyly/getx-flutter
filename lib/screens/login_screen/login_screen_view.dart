@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:getx_project/screens/home_screen/home_screen_view.dart';
+import 'package:getx_project/routes/app_routes.dart';
+import 'package:getx_project/screens/login_screen/login_screen_argument.dart';
 import 'package:getx_project/widgets/textfield/custom_txtfield.dart';
 
 part 'login_screen_binding.dart';
@@ -48,115 +49,141 @@ class LoginScreenView extends GetView<LoginScreenViewController> {
           ],
         ),
       ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 15.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            SizedBox(height: 30),
-            Text(
-              "SING IN OR CREATE \nAN ACCOUNT",
-              style: TextStyle(fontSize: 27, fontWeight: FontWeight.bold),
-            ),
 
-            Text(
-              "Help beginners to learn Flutter framework with GetX state management package.",
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w300),
-            ),
-            SizedBox(height: 60),
-            CustomTxtfield(hintText: "Email"),
-            SizedBox(height: 20),
-            Obx(
-              () => CustomTxtfield(
-                hintText: "Password",
-                isPass: true,
-                isHide: controller.isHidePassword.value,
-                suffixIcons: GestureDetector(
-                  onTap: () {
-                    controller.togglePassword();
-                  },
-                  child: Icon(
-                    controller.isHidePassword.value
-                        ? Icons.visibility_off
-                        : Icons.visibility_outlined,
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 15.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(height: 30),
+              Text(
+                "SING IN OR CREATE \nAN ACCOUNT",
+                style: TextStyle(fontSize: 27, fontWeight: FontWeight.bold),
+              ),
+              SizedBox(height: 10),
+              Text(
+                "Help beginners to learn Flutter framework with GetX state management package.",
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w300),
+              ),
+              SizedBox(height: 40),
+              CustomTxtfield(
+                hintText: "Full name",
+                txtController: controller.fnCtrl,
+              ),
+              SizedBox(height: 20),
+              CustomTxtfield(
+                hintText: "Email",
+                txtController: controller.emailCtrl,
+              ),
+              SizedBox(height: 20),
+              Obx(
+                () => CustomTxtfield(
+                  hintText: "Password",
+                  txtController: controller.passwordCtrl,
+                  isPass: true,
+                  isHide: controller.isHidePassword.value,
+                  suffixIcons: GestureDetector(
+                    onTap: () {
+                      controller.togglePassword();
+                    },
+                    child: Icon(
+                      controller.isHidePassword.value
+                          ? Icons.visibility_off
+                          : Icons.visibility,
+                    ),
                   ),
                 ),
               ),
-            ),
-            SizedBox(height: 20),
-            Obx(
-              () => Row(
+              SizedBox(height: 20),
+              Obx(
+                () => Row(
+                  children: [
+                    Checkbox(
+                      activeColor: const Color.fromARGB(255, 26, 83, 28),
+                      value: controller.rememberMe.value,
+                      onChanged: (value) => controller.toggleRememberMe(),
+                    ),
+                    Text(
+                      "Remember Me",
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    Spacer(),
+                    Text(
+                      "Forget Password?",
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        decoration: TextDecoration.underline,
+                        decorationColor: Colors.red,
+                        decorationStyle: TextDecorationStyle.solid,
+                        decorationThickness: 2,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(height: 20),
+              Row(
                 children: [
-                  Checkbox(
-                    activeColor: const Color.fromARGB(255, 26, 83, 28),
-                    value: controller.rememberMe.value,
-                    onChanged: (value) => controller.toggleRememberMe(),
+                  Expanded(
+                    flex: 2,
+                    child: SizedBox(
+                      height: 50,
+                      child: OutlinedButton(
+                        style: OutlinedButton.styleFrom(
+                          backgroundColor: const Color.fromARGB(
+                            255,
+                            26,
+                            77,
+                            28,
+                          ),
+                          foregroundColor: Colors.white,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                          // side: BorderSide(width: 2, color: Colors.brown),
+                          // shadowColor: Colors.brown,
+                          // elevation: 5,
+                        ),
+                        onPressed: () {
+                          Get.toNamed(
+                            AppRoutes.home,
+                            arguments: LoginScreenArgument(
+                              fullname: controller.fnCtrl.text,
+                              email: controller.emailCtrl.text,
+                              password: controller.passwordCtrl.text,
+                            ),
+                          );
+                        },
+                        child: Text("Continue", style: TextStyle(fontSize: 16)),
+                      ),
+                    ),
                   ),
-                  Text(
-                    "Remember Me",
-                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
-                  ),
-                  Spacer(),
-                  Text(
-                    "Forget Password?",
-                    style: TextStyle(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      decoration: TextDecoration.underline,
-                      decorationColor: Colors.red,
-                      decorationStyle: TextDecorationStyle.solid,
-                      decorationThickness: 2,
+                  SizedBox(width: 8),
+                  Expanded(
+                    flex: 1,
+                    child: SizedBox(
+                      height: 50,
+                      child: OutlinedButton(
+                        style: OutlinedButton.styleFrom(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(15),
+                          ),
+                          side: BorderSide(width: 2, color: Colors.brown),
+                        ),
+                        onPressed: () {},
+                        child: Text("As Guest", style: TextStyle(fontSize: 16)),
+                      ),
                     ),
                   ),
                 ],
               ),
-            ),
-            SizedBox(height: 20),
-            Row(
-              children: [
-                Expanded(
-                  flex: 2,
-                  child: SizedBox(
-                    height: 55,
-                    child: OutlinedButton(
-                      style: OutlinedButton.styleFrom(
-                        backgroundColor: const Color.fromARGB(255, 26, 77, 28),
-                        foregroundColor: Colors.white,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                        side: BorderSide(width: 2, color: Colors.brown),
-                        shadowColor: Colors.brown,
-                        elevation: 5,
-                      ),
-                      onPressed: () {
-                        Get.to(() => HomeScreenView());
-                        
-                      },
-                      child: Text("Continue", style: TextStyle(fontSize: 16)),
-                    ),
-                  ),
-                ),
-                SizedBox(width: 8),
-                Expanded(
-                  flex: 1,
-                  child: SizedBox(
-                    height: 55,
-                    child: OutlinedButton(
-                      style: OutlinedButton.styleFrom(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                        side: BorderSide(width: 2, color: Colors.brown),
-                      ),
-                      onPressed: () {},
-                      child: Text("As Guest", style: TextStyle(fontSize: 16)),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );

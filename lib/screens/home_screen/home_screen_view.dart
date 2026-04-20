@@ -16,16 +16,25 @@ class HomeScreenView extends GetView<HomescreenController> {
           onPressed: () => Get.back(),
         ),
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Center(
-            child: Text(
-              "Hello, Welcome to Home Screen",
-              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              "Full Name  :  ${controller.arg.fullname}",
+              style: TextStyle(fontSize: 20),
             ),
-          ),
-        ],
+            Text(
+              "Email          :  ${controller.arg.email}",
+              style: TextStyle(fontSize: 20),
+            ),
+            Text(
+              "Password  :  ${controller.arg.password}",
+              style: TextStyle(fontSize: 20),
+            ),
+          ],
+        ),
       ),
     );
   }

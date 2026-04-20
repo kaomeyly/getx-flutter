@@ -1,0 +1,10 @@
+-GetX state management
+    - Design and logic
+    - Dependancy injection if can use this makesure have3 (put, lazyPut, putAsync)
+    - Navigation : use for push to nextpage (Get.to, Get.toNamed,Get.back,Get.off,Get.offNamed,Get.offAll,Get.offAllNamed)
+    - workers
+
+Homescreen
+    - controller : var homeA = 0.obs;
+Detail Screen
+    - Design : Get.find<HomescreenController>.homeA;
