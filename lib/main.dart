@@ -5,7 +5,7 @@ import 'package:getx_project/routes/app_pages.dart';
 import 'package:getx_project/routes/app_routes.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-void main() async{
+void main() async {
   await GetStorage.init();
   runApp(const MainApp());
 }

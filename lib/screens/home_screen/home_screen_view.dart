@@ -22,15 +22,15 @@ class HomeScreenView extends GetView<HomescreenController> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "Full Name  :  ${controller.arg.fullname}",
+              "Full Name  :  ${controller.user!.fullname}",
               style: TextStyle(fontSize: 20),
             ),
             Text(
-              "Email          :  ${controller.arg.email}",
+              "Email          :  ${controller.user!.email}   ",
               style: TextStyle(fontSize: 20),
             ),
             Text(
-              "Password  :  ${controller.arg.password}",
+              "Password  :  ${controller.user!.password}",
               style: TextStyle(fontSize: 20),
             ),
           ],
