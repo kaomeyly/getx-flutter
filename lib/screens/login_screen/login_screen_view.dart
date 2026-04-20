@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:getx_project/routes/app_routes.dart';
 import 'package:getx_project/screens/login_screen/login_screen_argument.dart';
 import 'package:getx_project/widgets/textfield/custom_txtfield.dart';
@@ -150,14 +151,7 @@ class LoginScreenView extends GetView<LoginScreenViewController> {
                           // elevation: 5,
                         ),
                         onPressed: () {
-                          Get.toNamed(
-                            AppRoutes.home,
-                            arguments: LoginScreenArgument(
-                              fullname: controller.fnCtrl.text,
-                              email: controller.emailCtrl.text,
-                              password: controller.passwordCtrl.text,
-                            ),
-                          );
+                          controller.login();
                         },
                         child: Text("Continue", style: TextStyle(fontSize: 16)),
                       ),
