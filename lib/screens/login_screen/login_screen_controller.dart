@@ -23,7 +23,7 @@ class LoginScreenViewController extends GetxController {
         fullname: fnCtrl.text,
         email: emailCtrl.text,
         password: passwordCtrl.text,
-      ),
+      ).toMap(),
     );
 
     await box.write("isLogin", true);

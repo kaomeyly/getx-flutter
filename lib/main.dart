@@ -15,10 +15,13 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var box = GetStorage();
+    var isLogin = box.read("isLogin") ?? false;
+
     return GetMaterialApp(
       theme: ThemeData(textTheme: GoogleFonts.spaceGroteskTextTheme()),
       debugShowCheckedModeBanner: false,
-      initialRoute: AppRoutes.login,
+      initialRoute: isLogin ? AppRoutes.home : AppRoutes.login,
       getPages: AppPages.getPages,
     );
   }

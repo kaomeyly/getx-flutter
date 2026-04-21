@@ -12,8 +12,8 @@ class HomeScreenView extends GetView<HomescreenController> {
       appBar: AppBar(
         title: Text("Home Screen"),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back),
           onPressed: () => Get.back(),
+          icon: Icon(Icons.arrow_back),
         ),
       ),
       body: Center(
@@ -26,13 +26,10 @@ class HomeScreenView extends GetView<HomescreenController> {
               style: TextStyle(fontSize: 20),
             ),
             Text(
-              "Email          :  ${controller.user!.email}   ",
+              "Email          :  ${controller.user!.email}",
               style: TextStyle(fontSize: 20),
             ),
-            Text(
-              "Password  :  ${controller.user!.password}",
-              style: TextStyle(fontSize: 20),
-            ),
+            Text("Password  :  ", style: TextStyle(fontSize: 20)),
           ],
         ),
       ),
