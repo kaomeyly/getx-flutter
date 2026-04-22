@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:getx_project/localization/language/localization_service.dart';
 import 'package:getx_project/routes/app_pages.dart';
 import 'package:getx_project/routes/app_routes.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -24,9 +25,7 @@ class MainApp extends StatelessWidget {
       theme: ThemeData(textTheme: GoogleFonts.spaceGroteskTextTheme()),
       debugShowCheckedModeBanner: false,
       translations: AppTranslataton(),
-      locale: Locale("kmKH"),
-      // fallbackLocale: Locale("enUs"),
-      // supportedLocales: [Locale("km", "KH")],
+      locale: LocalizationService().getLocal(),
       initialRoute: AppRoutes.login,
       getPages: AppPages.getPages,
     );

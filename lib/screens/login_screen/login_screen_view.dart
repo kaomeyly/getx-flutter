@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:getx_project/core/constants/appfonts.dart';
+import 'package:getx_project/localization/language/localization_service.dart';
 import 'package:getx_project/routes/app_routes.dart';
 import 'package:getx_project/screens/login_screen/login_screen_argument.dart';
 import 'package:getx_project/widgets/textfield/custom_txtfield.dart';
@@ -61,26 +63,20 @@ class LoginScreenView extends GetView<LoginScreenViewController> {
               SizedBox(height: 30),
               Text(
                 'greeting_title'.tr,
-                style: Get.locale!.languageCode == "kmKH"
-                    ? GoogleFonts.khmer(
-                        fontSize: 40,
-                        fontWeight: FontWeight.bold,
-                        height: 1,
-                      )
-                    : GoogleFonts.spaceGrotesk(
-                        fontSize: 40,
-                        fontWeight: FontWeight.bold,
-                        height: 1,
-                      ),
+                style: AppFonts.appStyle().copyWith(
+                  fontSize: 40,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
+
               SizedBox(height: 10),
               Text(
                 'Help beginner developers and IT students master coding skills  through gamified quizzes and micro-challenges.'
                     .tr,
-                style: GoogleFonts.spaceGrotesk(
+                style: GoogleFonts.googleSans(
                   fontSize: 13,
                   fontWeight: FontWeight.bold,
-                  height: 1.2,
+                  // height: 1.2,
                 ),
               ),
               SizedBox(height: 40),
@@ -197,7 +193,7 @@ class LoginScreenView extends GetView<LoginScreenViewController> {
                 children: [
                   ElevatedButton(
                     onPressed: () {
-                      Get.updateLocale(Locale("kmKH"));
+                      LocalizationService().changeLocale("kmKH");
                       debugPrint("${Get.locale}");
                     },
                     style: ElevatedButton.styleFrom(
@@ -209,7 +205,7 @@ class LoginScreenView extends GetView<LoginScreenViewController> {
                   SizedBox(width: 20),
                   ElevatedButton(
                     onPressed: () {
-                      Get.updateLocale(Locale("enUs"));
+                      LocalizationService().changeLocale("enUs");
                       debugPrint(Get.locale!.languageCode);
                     },
                     style: ElevatedButton.styleFrom(
