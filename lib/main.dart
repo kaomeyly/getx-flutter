@@ -5,6 +5,8 @@ import 'package:getx_project/routes/app_pages.dart';
 import 'package:getx_project/routes/app_routes.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'localization/app_translataton.dart';
+
 void main() async {
   await GetStorage.init();
   runApp(const MainApp());
@@ -21,7 +23,11 @@ class MainApp extends StatelessWidget {
     return GetMaterialApp(
       theme: ThemeData(textTheme: GoogleFonts.spaceGroteskTextTheme()),
       debugShowCheckedModeBanner: false,
-      initialRoute: isLogin ? AppRoutes.home : AppRoutes.login,
+      translations: AppTranslataton(),
+      locale: Locale("kmKH"),
+      // fallbackLocale: Locale("enUs"),
+      // supportedLocales: [Locale("km", "KH")],
+      initialRoute: AppRoutes.login,
       getPages: AppPages.getPages,
     );
   }

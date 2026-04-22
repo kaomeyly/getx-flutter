@@ -26,7 +26,6 @@ class HomeScreenView extends GetView<HomescreenController> {
               style: TextStyle(fontSize: 20),
             ),
             Text("Password  :  ", style: TextStyle(fontSize: 20)),
-
             ElevatedButton(
               onPressed: () {
                 var box = GetStorage();
@@ -34,7 +33,7 @@ class HomeScreenView extends GetView<HomescreenController> {
                 box.erase();
                 Get.toNamed(AppRoutes.login);
               },
-              child: Text("Logout"),
+              child: Text("Logout".tr),
             ),
           ],
         ),

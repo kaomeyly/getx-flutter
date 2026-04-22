@@ -8,3 +8,10 @@ Homescreen
     - controller : var homeA = 0.obs;
 Detail Screen
     - Design : Get.find<HomescreenController>.homeA;
+
+
+- Localization:
+    - language code, country code
+        - khmer(km) and this is lc and kc this is cc(country code)
+        - English = en(lc), us(cc)
+    

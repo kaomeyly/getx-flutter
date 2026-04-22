@@ -4,6 +4,7 @@ import 'package:get_storage/get_storage.dart';
 import 'package:getx_project/routes/app_routes.dart';
 import 'package:getx_project/screens/login_screen/login_screen_argument.dart';
 import 'package:getx_project/widgets/textfield/custom_txtfield.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 part 'login_screen_binding.dart';
 part 'login_screen_controller.dart';
@@ -59,22 +60,37 @@ class LoginScreenView extends GetView<LoginScreenViewController> {
             children: [
               SizedBox(height: 30),
               Text(
-                "SING IN OR CREATE \nAN ACCOUNT",
-                style: TextStyle(fontSize: 27, fontWeight: FontWeight.bold),
+                'greeting_title'.tr,
+                style: Get.locale!.languageCode == "kmKH"
+                    ? GoogleFonts.khmer(
+                        fontSize: 40,
+                        fontWeight: FontWeight.bold,
+                        height: 1,
+                      )
+                    : GoogleFonts.spaceGrotesk(
+                        fontSize: 40,
+                        fontWeight: FontWeight.bold,
+                        height: 1,
+                      ),
               ),
               SizedBox(height: 10),
               Text(
-                "Help beginners to learn Flutter framework with GetX state management package.",
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.w300),
+                'Help beginner developers and IT students master coding skills  through gamified quizzes and micro-challenges.'
+                    .tr,
+                style: GoogleFonts.spaceGrotesk(
+                  fontSize: 13,
+                  fontWeight: FontWeight.bold,
+                  height: 1.2,
+                ),
               ),
               SizedBox(height: 40),
               CustomTxtfield(
-                hintText: "Full name",
+                hintText: "Full Name".tr,
                 txtController: controller.fnCtrl,
               ),
               SizedBox(height: 20),
               CustomTxtfield(
-                hintText: "Email",
+                hintText: "Email".tr,
                 txtController: controller.emailCtrl,
               ),
               SizedBox(height: 20),
@@ -97,36 +113,36 @@ class LoginScreenView extends GetView<LoginScreenViewController> {
                 ),
               ),
               SizedBox(height: 20),
-              Obx(
-                () => Row(
-                  children: [
-                    Checkbox(
-                      activeColor: const Color.fromARGB(255, 26, 83, 28),
-                      value: controller.rememberMe.value,
-                      onChanged: (value) => controller.toggleRememberMe(),
-                    ),
-                    Text(
-                      "Remember Me",
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    Spacer(),
-                    Text(
-                      "Forget Password?",
-                      style: TextStyle(
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold,
-                        decoration: TextDecoration.underline,
-                        decorationColor: Colors.red,
-                        decorationStyle: TextDecorationStyle.solid,
-                        decorationThickness: 2,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
+              // Obx(
+              //   () => Row(
+              //     children: [
+              //       Checkbox(
+              //         activeColor: const Color.fromARGB(255, 26, 83, 28),
+              //         value: controller.rememberMe.value,
+              //         onChanged: (value) => controller.toggleRememberMe(),
+              //       ),
+              //       Text(
+              //         "Remember Me",
+              //         style: TextStyle(
+              //           fontSize: 16,
+              //           fontWeight: FontWeight.bold,
+              //         ),
+              //       ),
+              //       Spacer(),
+              //       Text(
+              //         "Forget Password?",
+              //         style: TextStyle(
+              //           fontSize: 16,
+              //           fontWeight: FontWeight.bold,
+              //           decoration: TextDecoration.underline,
+              //           decorationColor: Colors.red,
+              //           decorationStyle: TextDecorationStyle.solid,
+              //           decorationThickness: 2,
+              //         ),
+              //       ),
+              //     ],
+              //   ),
+              // ),
               SizedBox(height: 20),
               Row(
                 children: [
@@ -158,24 +174,53 @@ class LoginScreenView extends GetView<LoginScreenViewController> {
                     ),
                   ),
                   SizedBox(width: 8),
-                  Expanded(
-                    flex: 1,
-                    child: SizedBox(
-                      height: 50,
-                      child: OutlinedButton(
-                        style: OutlinedButton.styleFrom(
-                          shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(15),
-                          ),
-                          side: BorderSide(width: 2, color: Colors.brown),
-                        ),
-                        onPressed: () {},
-                        child: Text("As Guest", style: TextStyle(fontSize: 16)),
-                      ),
+                  // Expanded(
+                  //   flex: 1,
+                  //   child: SizedBox(
+                  //     height: 50,
+                  //     child: OutlinedButton(
+                  //       style: OutlinedButton.styleFrom(
+                  //         shape: RoundedRectangleBorder(
+                  //           borderRadius: BorderRadius.circular(15),
+                  //         ),
+                  //         side: BorderSide(width: 2, color: Colors.brown),
+                  //       ),
+                  //       onPressed: () {},
+                  //       child: Text("As Guest", style: TextStyle(fontSize: 16)),
+                  //     ),
+                  //   ),
+                  // ),
+                ],
+              ),
+              SizedBox(height: 10),
+              Row(
+                children: [
+                  ElevatedButton(
+                    onPressed: () {
+                      Get.updateLocale(Locale("kmKH"));
+                      debugPrint("${Get.locale}");
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.green,
+                      foregroundColor: Colors.white,
                     ),
+                    child: Text("Khmer Language"),
+                  ),
+                  SizedBox(width: 20),
+                  ElevatedButton(
+                    onPressed: () {
+                      Get.updateLocale(Locale("enUs"));
+                      debugPrint(Get.locale!.languageCode);
+                    },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.red,
+                      foregroundColor: Colors.white,
+                    ),
+                    child: Text("English Language"),
                   ),
                 ],
               ),
+              SizedBox(height: 50),
             ],
           ),
         ),
