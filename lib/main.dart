@@ -24,9 +24,11 @@ class MainApp extends StatelessWidget {
     return GetMaterialApp(
       theme: ThemeData(textTheme: GoogleFonts.spaceGroteskTextTheme()),
       debugShowCheckedModeBanner: false,
+      
       translations: AppTranslataton(),
       locale: LocalizationService().getLocal(),
-      initialRoute: AppRoutes.login,
+      initialRoute: AppRoutes.practiceOne,
+      // initialRoute: AppRoutes.login,
       getPages: AppPages.getPages,
     );
   }
