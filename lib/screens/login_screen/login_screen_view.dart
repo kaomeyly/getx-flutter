@@ -92,7 +92,7 @@ class LoginScreenView extends GetView<LoginScreenViewController> {
               SizedBox(height: 20),
               Obx(
                 () => CustomTxtfield(
-                  hintText: "Password",
+                  hintText: "Password".tr,
                   txtController: controller.passwordCtrl,
                   isPass: true,
                   isHide: controller.isHidePassword.value,

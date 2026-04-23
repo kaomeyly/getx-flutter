@@ -5,4 +5,6 @@ Map<String, String> enUs = {
   "greeting_title": "SIGN IN OR CREATE AN ACCOUNT",
   'Help beginner developers and IT students master coding skills  through gamified quizzes and micro-challenges.':
       'Help beginner developers and IT students master coding skills  through gamified quizzes and micro-challenges.',
+  'Email': 'Email',
+  'Password': 'Password',
 };

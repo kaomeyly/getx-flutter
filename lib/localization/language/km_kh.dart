@@ -5,4 +5,6 @@ Map<String, String> kmKH = {
   "greeting_title": "ចូល ឬបង្កើតគណនី",
   'Help beginner developers and IT students master coding skills  through gamified quizzes and micro-challenges.':
       'ជួយអ្នកបង្កើតកម្មវិធីដំបូង និងសិស្ស IT ឱ្យស្ទាត់ជំនាញសរសេរកូដតាមរយៈកម្រងសំណួរ និងបញ្ហាប្រឈមតូចៗ។',
+  'Email': 'អ៊ីម៉ែល',
+  'Password': 'ពាក្យសម្ងាត់',
 };
