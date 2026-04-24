@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
 import 'package:get_storage/get_storage.dart';
+import 'package:getx_project/core/constants/app_color.dart';
 import 'package:getx_project/localization/language/localization_service.dart';
 import 'package:getx_project/routes/app_pages.dart';
 import 'package:getx_project/routes/app_routes.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 import 'localization/app_translataton.dart';
 
@@ -22,13 +22,16 @@ class MainApp extends StatelessWidget {
     var isLogin = box.read("isLogin") ?? false;
 
     return GetMaterialApp(
-      theme: ThemeData(textTheme: GoogleFonts.spaceGroteskTextTheme()),
+      // theme: ThemeData(textTheme: GoogleFonts.spaceGroteskTextTheme()),
       debugShowCheckedModeBanner: false,
-      
+
       translations: AppTranslataton(),
       locale: LocalizationService().getLocal(),
+      theme: AppColor.lightMode(),
+      darkTheme: AppColor.darkMode(),
+      themeMode: ThemeMode.light,
+      // initialRoute: AppRoutes.them,
       initialRoute: AppRoutes.practiceOne,
-      // initialRoute: AppRoutes.login,
       getPages: AppPages.getPages,
     );
   }

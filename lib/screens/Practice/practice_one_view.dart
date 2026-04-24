@@ -150,7 +150,7 @@ class PracticeOneView extends GetView<PracticeOneController> {
           width: double.infinity,
           height: 200,
           decoration: BoxDecoration(
-            color: const Color.fromARGB(255, 201, 200, 200),
+            color: const Color.fromARGB(255, 218, 214, 214),
             borderRadius: BorderRadius.circular(20),
           ),
           child: Padding(
@@ -192,7 +192,7 @@ class PracticeOneView extends GetView<PracticeOneController> {
           width: double.infinity,
           height: 200,
           decoration: BoxDecoration(
-            color: const Color.fromARGB(255, 201, 200, 200),
+            color: const Color.fromARGB(255, 218, 214, 214),
             borderRadius: BorderRadius.circular(20),
           ),
           child: Padding(
