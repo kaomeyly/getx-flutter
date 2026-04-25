@@ -18,8 +18,8 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var box = GetStorage();
-    var isLogin = box.read("isLogin") ?? false;
+    // var box = GetStorage();
+    // var isLogin = box.read("isLogin") ?? false;
 
     return GetMaterialApp(
       // theme: ThemeData(textTheme: GoogleFonts.spaceGroteskTextTheme()),
