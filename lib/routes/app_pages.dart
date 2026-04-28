@@ -27,7 +27,7 @@ class AppPages {
     GetPage(
       name: AppRoutes.them,
       page: () => ThemExamScreenView(),
-      binding: ThemExamScreenViewBinding(),
+      binding: ThemExamScreenBinding(),
     ),
   ];
 }
