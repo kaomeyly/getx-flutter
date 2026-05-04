@@ -24,7 +24,7 @@ class MainApp extends StatelessWidget {
     var isDark = box.read("isDark") ?? false;
     debugPrint("isDark $isDark");
     return GetMaterialApp(
-      initialRoute: AppRoutes.them,
+      initialRoute: AppRoutes.product,
 
       debugShowCheckedModeBanner: false,
 

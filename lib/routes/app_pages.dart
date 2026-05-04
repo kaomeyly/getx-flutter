@@ -5,6 +5,7 @@ import 'package:getx_project/screens/Practice/practice_one_view.dart';
 import 'package:getx_project/screens/home_screen/home_screen_binding.dart';
 import 'package:getx_project/screens/home_screen/home_screen_view.dart';
 import 'package:getx_project/screens/login_screen/login_screen_view.dart';
+import 'package:getx_project/screens/product_screen/product_screen_view.dart';
 import 'package:getx_project/screens/them_exam_screen/them_exam_screen_view.dart';
 
 class AppPages {
@@ -28,6 +29,11 @@ class AppPages {
       name: AppRoutes.them,
       page: () => ThemExamScreenView(),
       binding: ThemExamScreenBinding(),
+    ),
+    GetPage(
+      name: AppRoutes.product,
+      page: () => ProductScreenView(),
+      binding: ProductScreenViewBinding(),
     ),
   ];
 }

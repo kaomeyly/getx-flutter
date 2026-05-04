@@ -14,4 +14,11 @@ Detail Screen
     - language code, country code
         - khmer(km) and this is lc and kc this is cc(country code)
         - English = en(lc), us(cc)
-    
+- Dio
+    HTTP:
+        header : extra information
+        methods : GET, POST , PUT , DELETE
+        status code : 
+api :
+    base url : htps and this is link of postman
+    end-point : /api/v2/products.json this end of htps.
