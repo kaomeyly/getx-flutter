@@ -5,6 +5,8 @@ class ProductScreenViewController extends GetxController {
   var product = [].obs;
   var isLoading = false.obs;
 
+  ProductModel? productData;
+
   void getProduct() async {
     isLoading.value = true;
     var apiService = ApiService();
